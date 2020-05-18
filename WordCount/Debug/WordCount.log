@@ -1,0 +1,6 @@
+﻿  WordCount.c
+D:\github\code\WordCount\WordCount\WordCount.c(8,16): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\github\code\WordCount\WordCount\WordCount.c(26,16): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\github\code\WordCount\WordCount\WordCount.c(64,5): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\github\code\WordCount\WordCount\WordCount.c(65,5): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  WordCount.vcxproj -> D:\github\code\WordCount\Debug\WordCount.exe
