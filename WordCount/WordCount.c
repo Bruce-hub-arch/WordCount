@@ -25,23 +25,30 @@ void charcount(char filtxt1[100])
 void wordcount(char filtxt2[100])
 {
 	int count2 = 0;//计数单词变量
-	char ch;
+	char ch1, ch2;
 	FILE* pw = fopen(filtxt2, "r");//以只读方式打开txt文件
-
 	//如果文本文件打开失败或者文件不存在，程序异常退出
 	if (pw == NULL)
 	{
 		printf("error on open file!");
 		exit(1);
 	}
-
-	//遍历文件中的所有字符用count2计数文件中用于分割单词的' '和 ','字符的数量
-	while ((ch = getc(pw)) != EOF)
-		if (ch == ' ' || ch == ',')
+	//遍历文件中的所有字符用count2计数文件中相邻两个字符为:非' '和','的字符+' '或者','
+	ch1 = getc(pw);
+	ch2 = getc(pw);
+	while (1)
+	{
+		//每个单词结尾都是：非' '和','的字符+' '或者','
+		if ((ch1 != ' ' && ch1 != ',') && (ch2 == ' ' || ch2 == ','))
 			count2++;
-
-	//由于单词由' '、'\n'、'\t'、 ','字符隔开，故单词数为count2+1
-	printf("单词数：%d", ++count2);
+		//最后一个单词后面如果没有' '或者',',则count2+1为单词数
+		if ((ch1 != ' ' && ch1 != ',') && ch2 == EOF)
+			count2++;
+		if (ch2 == EOF) break;
+		ch1 = ch2;
+		ch2 = getc(pw);
+	}
+	printf("单词数：%d", count2);
 	fclose(pw);//关闭txt文件
 }
 
